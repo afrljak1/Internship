@@ -1,0 +1,10 @@
+﻿<Window x:Class="Serijalizacija.MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="Serijalizacija i deserijalizacija" Height="300" Width="500">
+    <StackPanel>
+        <Button Name="serializeButton" Content="Serijalizuj" Click="SerializeButton" Margin="10"/>
+        <Button Name="deserializeButton" Content="Deserijalizuj" Click="DeserializeButton" Margin="10"/>
+        <TextBox Name="TextBoxOutput" IsReadOnly="True" Margin="10"/>
+    </StackPanel>
+</Window>
