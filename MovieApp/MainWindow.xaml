@@ -12,14 +12,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="searchBox" Grid.Row="0" Margin="40,10,251,10" MaxLength="8"/>
+        <TextBox x:Name="searchBox" Grid.Row="0" Margin="40,10,205,10" MaxLength="8" />
         <Button x:Name="searchButton" Content="Search" Grid.Row="0" HorizontalAlignment="Right" Margin="0,10,40,10" Click="searchButton_Click" Width="130"/>
-        <ListBox x:Name="resultListBox" Grid.Row="1" Margin="10"/>
+        <ListBox x:Name="resultListBox" Grid.Row="1" Margin="10" MouseDoubleClick="doubleclick">
+        </ListBox>
+
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="{Binding Title}" VerticalAlignment="Center" />
             <Button x:Name="prevButton" Content="Previous" Margin="5" Click="prevButton_Click" Height="24" Width="76" />
             <Label x:Name="paginationLabel" Content="" Margin="5"/>
-            <Button x:Name="nextButton" Content="Next" Margin="5" Click="nextButton_Click" Height="24" Width="81" />
+            <Button x:Name="nextButton" Content="Next" Margin="5" Click="nextButton_Click" Height="27" Width="66" />
         </StackPanel>
     </Grid>
 </Window>

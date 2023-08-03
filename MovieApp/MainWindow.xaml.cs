@@ -79,7 +79,6 @@ namespace MovieApp
                                 Year = movie.Year,
                                 Type = movie.Type,
                                 ImdbID = movie.imdbID,
-                                // Poster = movie.Poster
                             };
                             movies.Add(movieInfo);
                         }
@@ -118,18 +117,95 @@ namespace MovieApp
             }
         }
 
+        private void doubleclick(object sender, MouseButtonEventArgs e)
+        {
+            if (resultListBox.SelectedItem is MovieInfo selectedMovie)
+            {
+                detailwindow(selectedMovie.ImdbID);
+            }
+        }
+
+        private async void detailwindow(string imdbId)
+        {
+            try
+            {
+                string detailEndpoint = $"http://www.omdbapi.com/?apikey={apiKey}&i={imdbId}";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync(detailEndpoint);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResult = await response.Content.ReadAsStringAsync();
+                        dynamic data = JsonConvert.DeserializeObject(jsonResult);
+
+                        MovieInfo selectedMovie = new MovieInfo
+                        {
+                            Title = data.Title,
+                            Year = data.Year,
+                            Type = data.Type,
+                            ImdbID = data.imdbID,
+                            Rated = data.Rated,
+                            Released = data.Released,
+                            Runtime = data.Runtime,
+                            Genre = data.Genre,
+                            Actors = data.Actors,
+                            Language = data.Language,
+                            Poster = data.Poster,
+                            Director = data.Director,
+                            Writer = data.Writer,
+                            Awards = data.Awards,
+                            Country = data.Country,
+                            Plot = data.Plot,
+                            ImdbRating = data.ImdbRating,
+                            Prodaction = data.Production
+                        };
+
+                        MovieDetails detailWindow = new MovieDetails(selectedMovie);
+                        detailWindow.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error while fetching movie details. Please try again later.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: Not found!");
+            }
+        }
+
+
         public class MovieInfo
         {
             public string Title { get; set; }
             public string Year { get; set; }
             public string Type { get; set; }
             public string ImdbID { get; set; }
-            //public string Poster { get; set; }
+            public string Rated { get; set; }
+            public string Released { get; set; }
+            public string Runtime { get; set; }
+            public string Genre { get; set; }
+            public string Poster { get; set; }
+            public string Actors { get; set; }
+            public string Language { get; set; }
+            public string Director { get; set; }
+            public string Writer { get; set; }
+            public string Awards { get; set; }
+            public string Country { get; set; }
+            public string Plot { get; set; }
+            public string ImdbRating { get; set; }
+            public string Prodaction { get; set; }
 
             public override string ToString()
             {
                 return $"{Title} - ({Year}) - {Type} - {ImdbID}";
             }
+      
         }
+
+
     }
 }
