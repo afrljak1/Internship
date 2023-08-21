@@ -16,14 +16,12 @@ namespace Movie_Api.Controllers
             _context = context;
         }
 
-        // GET: api/Movies
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovie()
         {
             return await _context.Movies.ToListAsync();
         }
 
-        // GET: api/Movie/1
         [HttpGet("{genre}")]
         public async Task<ActionResult<Movie>> GetMoviet(string genre)
         {
