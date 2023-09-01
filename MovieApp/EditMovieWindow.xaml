@@ -1,0 +1,35 @@
+﻿<Window x:Class="MovieApp.EditMovieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Movie" Height="400" Width="500">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock FontWeight="Bold">Title:</TextBlock>
+            <TextBox x:Name="TitleTextBox" Text="{Binding Title}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Year:</TextBlock>
+            <TextBox x:Name="YearTextBox" Text="{Binding Year}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Type:</TextBlock>
+            <TextBox x:Name="TypeTextBox" Text="{Binding Type}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">ImdbID:</TextBlock>
+            <TextBox x:Name="ImdbIDTextBox" Text="{Binding ImdbID}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Released:</TextBlock>
+            <TextBox x:Name="ReleasedTextBox" Text="{Binding Released}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Genre:</TextBlock>
+            <TextBox x:Name="GenreTextBox" Text="{Binding Genre}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Langauge:</TextBlock>
+            <TextBox x:Name="LanguageTextBox" Text="{Binding Language}" FontSize="14" />
+
+            <TextBlock FontWeight="Bold">Plot:</TextBlock>
+            <TextBox x:Name="PlotTextBox" Text="{Binding Plot}" FontSize="14" />
+
+            <!-- Dodajte elemente za uređivanje ostalih informacija o filmu ... -->
+            <Button Content="Save" Click="SaveButton_Click" Height="30" Width="76" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
