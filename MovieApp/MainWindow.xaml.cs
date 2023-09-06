@@ -308,8 +308,10 @@ namespace MovieApp
 
                     if (success)
                     {
+                        // Remove the movie from the ObservableCollection
                         movieList.Remove(movieInfo);
 
+                        // Refresh the ListBox to reflect the changes
                         ResultListBox.Items.Refresh();
 
                         MessageBox.Show("Movie deleted successfully!");

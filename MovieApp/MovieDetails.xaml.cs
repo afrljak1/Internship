@@ -97,6 +97,28 @@ namespace MovieApp
             }
         }
 
+      
+
+/*        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Učitajte informacije iz korisničkog unosa u originalni film
+                originalMovie.Title = TitleTextBox.Text;
+
+                // Učitajte ostale informacije ...
+
+                await ApiHelper.UpdateMovieAsync(originalMovie);
+
+                MessageBox.Show("Movie updated successfully!");
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }*/
+
         private async Task UpdateMovieAsync(MovieInfo movie)
         {
             try
