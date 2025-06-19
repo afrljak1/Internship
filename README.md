@@ -1,1 +1,1 @@
-Implementation of desktop application using WPF, and development of WEB API
+Tokom prakse implementirana je desktop aplikacije koristeći WPF (C#) i razvoj WEB API. Apliacija sadrži frontend i backend, te bazu podataka. Sadrži pregled filmova, pretraživanje, dodavanje novih filmova, kao i ostavljanje komentara. Praksa je odrađena u kompaniji Walter Code.
